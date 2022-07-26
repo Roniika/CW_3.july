@@ -18,7 +18,7 @@ class TestApi:
 
     def test_all_posts_have_correct_keys(self, app_instance):
         result = app_instance.get("/api/posts", follow_redirects=True)
-        list_of_posts = result.get.json()
+        list_of_posts = result.json()
 
         for post in list_of_posts:
             assert post.keys() == self.post_keys, "Неправильные ключи у полученного словаря"
